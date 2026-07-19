@@ -12,8 +12,7 @@ pipeline {
                     sh '''
                     rm -rf test_report
                     mkdir -p test_report
-                    # 先在Mac终端执行 which newman 把下面路径替换成你本机真实绝对路径
-                    /usr/local/bin/newman run "Demo User API.postman_collection.json" \
+                    newman run "Demo User API.postman_collection.json" \
                     -e "New Environment.postman_environment.json" \
                     -r cli,html,junitfull \
                     --reporter-html-export test_report/api_report.html \

@@ -9,7 +9,7 @@ pipeline {
         }
         stage('执行Postman接口自动化测试') {
             steps {
-                // 切换到postman子文件夹
+                // 切换到postman子文件夹,ok
                 dir('postman') {
                     sh '''
                     # 清理旧报告、新建目录

@@ -12,7 +12,7 @@ pipeline {
                     sh '''
                     rm -rf test_report
                     mkdir -p test_report
-                    newman run "Demo User API.postman_collection.json" \
+                    /Users/xyc/.npm-global/bin/newman run "Demo User API.postman_collection.json" \
                     -e "New Environment.postman_environment.json" \
                     -r cli,html,junitfull \
                     --reporter-html-export test_report/api_report.html \

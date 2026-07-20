@@ -6,6 +6,27 @@ pipeline {
                 git url: 'git@github.com:Aquarius200/Jenkins-Demo.git', branch: 'main'
             }
         }
+         // 新增：环境调试阶段
+        stage('环境调试') {
+            steps {
+                echo "===== 打印当前系统PATH ====="
+                sh 'echo $PATH'
+
+                echo "===== 检查sh解释器位置 ====="
+                sh 'which sh'
+
+                echo "===== 检查node是否可调用 ====="
+                sh '/usr/local/bin/node -v'
+
+                echo "===== 直接用绝对路径校验newman版本 ====="
+                sh '/Users/xyc/.npm-global/bin/newman -v'
+
+                echo "===== 进入postman目录查看文件列表 ====="
+                dir('postman'){
+                    sh 'ls -l'
+                }
+            }
+        }
         stage('执行Postman接口测试') {
             steps {
                 dir('postman') {
